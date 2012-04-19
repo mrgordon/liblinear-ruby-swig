@@ -51,7 +51,7 @@ class LParameter
   attr_accessor :param
   
   def initialize(*args)
-    @param = Parameter.new
+    @param = Liblinear::Parameter.new
     @param.solver_type = L2R_LR
     @param.C = 1
     @param.eps = 0.01
@@ -140,10 +140,10 @@ end
 
 class LProblem
   attr_accessor :prob, :maxlen, :size
-  
+
   def initialize(y,x,bias)
 #    assert_equal(y.size, x.size)
-    @prob = prob = Problem.new 
+    @prob = prob = Liblinear::Problem.new
     @size = size = y.size
     
     @y_array = y_array = new_int(size)
